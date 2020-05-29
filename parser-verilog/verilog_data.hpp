@@ -84,6 +84,10 @@ namespace verilog {
     int end {-1};
     PortDirection dir;
     ConnectionType type {ConnectionType::NONE};
+	
+	int width(){
+		return (beg==-1&&end==-1)?(1):(std::abs(beg-end));
+	}
   };
 
   inline std::ostream& operator<<(std::ostream& os, const Port& port) {  
@@ -129,6 +133,10 @@ namespace verilog {
     int beg {-1};
     int end {-1};
     NetType type {NetType::NONE};
+	
+	int width(){
+		return (beg==-1&&end==-1)?(1):(std::abs(beg-end));
+	}
   };
 
   inline std::ostream& operator<<(std::ostream& os, const Net& net) {  
