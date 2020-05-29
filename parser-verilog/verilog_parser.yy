@@ -161,7 +161,7 @@ port_declarations
     }
   | port_declarations ',' valid_name 
     {
-      $1.names.emplace_back(std::move($3));    
+      $1.names.emplace_back(std::move($3));
       $$ = $1;
     }
   ;

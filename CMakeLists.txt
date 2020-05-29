@@ -13,6 +13,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2")
 # add the binary tree to the search path for include files
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories(parser-verilog)
+include_directories(build)
 
 
 # -----------------------------------------------------------------------------
@@ -54,7 +55,10 @@ add_executable(ot_parser
 )
 target_link_libraries(ot_parser stdc++fs)
 
-
+# gv parser
+add_library(parser-verilog
+			${CMAKE_CURRENT_BINARY_DIR}/verilog_parser.tab.cc
+			${CMAKE_CURRENT_BINARY_DIR}/verilog_lexer.yy.cc)
 
 # -----------------------------------------------------------------------------
 # Unittest
